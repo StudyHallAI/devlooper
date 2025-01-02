@@ -1,0 +1,39 @@
+name: Admin Jobs
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  admin-jobs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install ruff black pytest
+
+      - name: Run lint
+        run: make lint
+
+      - name: Run format
+        run: make format
+
+      - name: Run tests
+        run: make test
+
+      - name: Build project
+        run: make build
