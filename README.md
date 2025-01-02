@@ -76,6 +76,14 @@ modal run src.main --prompt="a webscraper that checks if there are new reservati
 
 Once all tests pass, the output will be written to `output/` in the same directory by default. This can be overridden using `--output-path`.
 
+### Files and their purposes
+
+- `src/__init__.py`: Makes `src` a package.
+- `src/env_templates.py`: Defines environment templates for different languages/frameworks.
+- `src/display.py`: Handles displaying differences and information.
+- `src/main.py`: Implements the main logic of the `devlooper` program.
+- `src/prompts.py`: Handles prompts and interactions with the LLM.
+
 ## ✨ Showcase
 
 _Coming soon_
