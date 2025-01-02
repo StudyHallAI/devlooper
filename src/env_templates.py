@@ -43,6 +43,7 @@ TEMPLATES = {
             modal.Image.from_registry("rust:slim")
             .apt_install("build-essential")
             .run_commands("cargo new app --bin")
+            .run_commands("cargo add async-trait serde anyhow async-openai") # P5297
             .workdir("/app")
         ),
         install_packages=lambda image, packages: image.run_commands(f"cargo add {' '.join(packages)}"),
